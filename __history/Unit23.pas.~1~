@@ -1,0 +1,89 @@
+unit Unit23;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.Imaging.jpeg, Vcl.WindowsStore, Vcl.XPMan, Vcl.Imaging.pngimage;
+
+type
+  TForm23 = class(TForm)
+    rg2: TRadioGroup;
+    Btn1: TButton;
+    lbl1: TLabel;
+    ComboBox1: TComboBox;
+    Image1: TImage;
+    procedure FormCreate(Sender: TObject);
+    procedure Btn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form23: TForm23;
+  f:Text;
+s:UTF8String;
+Nvern,ball:integer;
+implementation
+
+{$R *.dfm}
+
+procedure TForm23.Btn1Click(Sender: TObject);
+begin
+if (rg2.ItemIndex>-1) and (not Eof(f)) then begin
+if rg2.ItemIndex = Nvern-1 then ball:=ball+1; //≈сли выбранный вариант соответствует
+rg2.Items.Clear; //номеру верного ответа то балл прибавл€етс€
+Repeat //и очищаетс€ поле дл€ следующего вопроса
+if (s[1]='-') then begin
+delete(s,1,1);
+rg2.Caption:=Utf8ToAnsi(s);
+end
+else if s[1]='*' then begin
+delete(s,1,1);
+
+Nvern:=StrToInt(s);
+
+end
+
+else rg2.Items.Add(Utf8ToAnsi(s));
+readln(f,s);
+until (s[1]='-') or (Eof(f));
+end
+//≈сли конец файла достигнут, значит вопросы закончились
+Else if Eof(f) then begin
+delete(s,1,1);
+Nvern:=StrToInt(s);
+if rg2.ItemIndex = Nvern-1 then ball:=ball+1;
+lbl1.Caption:='–езультат: '+IntToStr(ball); //¬ывод количества баллов
+CloseFile(f);
+btn1.Enabled:=False; //кнопка становитс€ недоступной в завершении проекта
+end;
+end;
+
+procedure TForm23.FormCreate(Sender: TObject);
+begin
+
+rg2.Enabled:=true;
+btn1.Enabled:=true;
+AssignFile(f,'test/variant1.txt');
+reset(f);
+readln(f,s);
+ball:=0;
+repeat
+if (s[1]='-') then begin
+delete(s,1,1);
+rg2.Caption:=Utf8ToAnsi(s);
+end
+else if s[1]='*' then begin
+delete(s,1,1);
+Nvern:=StrToInt(s);
+
+ end
+
+else rg2.Items.Add(Utf8ToAnsi(s));
+readln(f,s);
+until (s[1]='-') or (Eof(f));       end;
+end.

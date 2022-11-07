@@ -1,0 +1,153 @@
+unit Unit4;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, StdCtrls, jpeg;
+
+type
+  TForm4 = class(TForm)
+    Timer1: TTimer;
+    Image1: TImage;
+    Timer2: TTimer;
+    Image2: TImage;
+    Image3: TImage;
+    Label1: TLabel;
+    Image4: TImage;
+    Image5: TImage;
+    Label2: TLabel;
+    Image6: TImage;
+    Label3: TLabel;
+    Image7: TImage;
+    Label4: TLabel;
+    Image8: TImage;
+    procedure Timer1Timer(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Timer2Timer(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure Image5Click(Sender: TObject);
+    procedure Image6Click(Sender: TObject);
+    procedure Image7Click(Sender: TObject);
+    procedure Image8Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form4: TForm4;
+    fon1:TBitmap;
+  korb1:TBitmap;
+  x1,y1:Integer;
+  shx1,shy1:integer;
+
+implementation
+
+uses Unit5;
+
+{$R *.dfm}
+
+procedure TForm4.Timer1Timer(Sender: TObject);
+begin
+
+Image2.Visible:=false;
+x1:=x1+shx1;
+if x1>605 then shx1:=shx1*-1;
+if x1<0 then shx1:=shx1*-1;
+Image1.Canvas.Draw(0,0,fon1);
+Image1.Canvas.Draw(x1,300,korb1);
+if x1>605 then   begin
+  timer1.enabled:=false;
+image3.visible := true;
+y1:=300;
+end;
+end;
+
+procedure TForm4.FormActivate(Sender: TObject);
+begin
+image1.Align:=alClient;
+
+shx1:=3;
+            shy1:=-3;
+fon1:=TBitmap.Create;
+
+fon1.loadfromfile('фотокарточки\fonchik.bmp');
+korb1:=TBitmap.create;
+korb1.LoadFromFile('фотокарточки\дедок биг.bmp');
+korb1.Transparent:=True;
+Image1.Canvas.Draw(0,0,fon1);
+image1.Canvas.Draw(55,300,korb1);
+x1:=55;
+
+end;
+
+procedure TForm4.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Application.Terminate;
+end;
+
+procedure TForm4.Timer2Timer(Sender: TObject);
+begin
+image3.Visible:=false;
+y1:=y1+shy1;
+if y1<0 then  shy1:=shy1*-1;
+Image1.Canvas.Draw(0,0,fon1);
+Image1.Canvas.Draw(605,y1,korb1);
+if y1<65 then        begin
+Timer2.Enabled := False;
+fon1.loadfromfile('фотокарточки\fonchik2.bmp');
+Image1.Canvas.Draw(0,0,fon1);
+image1.Canvas.Draw(605,65,korb1);
+Label1.Visible:=True;
+Image5.visible:=true;
+          end;
+end;
+
+procedure TForm4.Image2Click(Sender: TObject);
+begin
+Timer1.Enabled:=true;
+image2.Enabled:=false;
+end;
+
+procedure TForm4.Image3Click(Sender: TObject);
+begin
+Timer2.enabled:=true;
+end;
+
+
+
+procedure TForm4.Image5Click(Sender: TObject);
+begin
+label1.Visible:=false;
+label2.visible:=True;
+image5.visible:=False;
+Image6.visible:=true;
+end;
+
+procedure TForm4.Image6Click(Sender: TObject);
+begin
+Label2.Visible:=false;
+label3.visible:=true;
+Image6.Visible:=false;
+Image7.visible:=true;
+end;
+
+procedure TForm4.Image7Click(Sender: TObject);
+begin
+  Image7.visible:=False;
+  label3.visible:=false;
+  label4.visible:=true;
+  image8.visible:=true;
+end;
+
+procedure TForm4.Image8Click(Sender: TObject);
+begin
+Form4.hide;
+form5.show;
+end;
+
+end.

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.999,=C:\ДОСТАЛИ\Unit15.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.184,=C:\ДОСТАЛИ\Unit15.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.098,=C:\ДОСТАЛИ\Unit28.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.812,C:\ДОСТАЛИ\Unit28.pas=C:\ДОСТАЛИ\Unit26.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.812,C:\ДОСТАЛИ\Unit28.dfm=C:\ДОСТАЛИ\Unit26.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.231,=C:\ДОСТАЛИ\Unit15.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.595,C:\ДОСТАЛИ\Project1dpr.dproj=C:\ДОСТАЛИ\Project1dpr.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.421,C:\ДОСТАЛИ\Project1dpr.dproj=C:\ДОСТАЛИ\Project1dpr.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.139,C:\ДОСТАЛИ\Project1dpr.dproj=C:\ДОСТАЛИ\Project1dpr.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.437,C:\ДОСТАЛИ\Project1dpr.dproj=C:\ДОСТАЛИ\Project1dpr.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.578,C:\ДОСТАЛИ\Unit15.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.256,C:\ДОСТАЛИ\шрифт.rc=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.658,C:\ДОСТАЛИ\Unit16.dfm=C:\резерв\Unit16.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.291,=C:\ДОСТАЛИ\Unit26.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.966,=C:\ДОСТАЛИ\Unit26.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.921,=C:\ДОСТАЛИ\Unit20.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.301,=C:\ДОСТАЛИ\шрифт.rc</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.017,=C:\ДОСТАЛИ\Unit10.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.078,=C:\ДОСТАЛИ\Unit9.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.567,=C:\ДОСТАЛИ\Unit4.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.273,C:\ДОСТАЛИ\Unit4.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.216,=C:\ДОСТАЛИ\Unit18.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.986,C:\ДОСТАЛИ\Project1dpr.dproj=C:\ДОСТАЛИ\Project1dpr.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.934,=C:\ДОСТАЛИ\Unit19.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.585,=C:\ДОСТАЛИ\Unit11.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.535,=C:\ДОСТАЛИ\Unit11.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.155,C:\ДОСТАЛИ\Unit11.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.703,=C:\ДОСТАЛИ\Unit17.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.447,=C:\ДОСТАЛИ\Unit14.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.658,C:\ДОСТАЛИ\Unit16.pas=C:\резерв\Unit16.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.069,=C:\ДОСТАЛИ\Unit16.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.195,C:\ДОСТАЛИ\Unit16.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.958,=C:\ДОСТАЛИ\Unit16.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.383,=C:\ДОСТАЛИ\Unit12.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.593,=C:\ДОСТАЛИ\Unit27.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.197,=C:\ДОСТАЛИ\Unit27.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.437,=C:\ДОСТАЛИ\Unit21.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.567,=C:\ДОСТАЛИ\Unit22.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.133,=C:\ДОСТАЛИ\hello.rc</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.267,=C:\ДОСТАЛИ\Unit25.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.682,=C:\ДОСТАЛИ\Unit8.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.428,=C:\ДОСТАЛИ\Unit23.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.676,=C:\ДОСТАЛИ\Unit13.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.444,=C:\ДОСТАЛИ\Unit13.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.470,C:\ДОСТАЛИ\Unit13.pas=</Transaction>
+  </Transactions>
+</BorlandProject>

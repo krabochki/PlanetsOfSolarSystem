@@ -1,0 +1,160 @@
+unit Unit11;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, JPEG, Vcl.ExtCtrls;
+
+type
+  TAliensPuzzle = class(TForm)
+    OpenDialog1: TOpenDialog;
+    MainMenu1: TMainMenu;
+    N1: TMenuItem;
+    N2: TMenuItem;
+    N3: TMenuItem;
+    N4: TMenuItem;
+    N221: TMenuItem;
+    N441: TMenuItem;
+    N881: TMenuItem;
+    N1611: TMenuItem;
+    N32321: TMenuItem;
+    Timer1: TTimer;
+    procedure N3Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure N221Click(Sender: TObject);
+    procedure N441Click(Sender: TObject);
+    procedure N881Click(Sender: TObject);
+    procedure N1611Click(Sender: TObject);
+    procedure N32321Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  AliensPuzzle: TAliensPuzzle;
+  Buf,Original:TBitmap;
+  Open:TJpegImage;
+  Pazl:array[1..1024] of TBitmap;
+  Kopia,Pole:array[0..31,0..31] of Integer;
+  path:string;
+  Razmer,xx,yy:integer;
+  //game:boolean;
+  procedure PazlGo;
+
+implementation
+
+{$R *.dfm}
+
+procedure TAliensPuzzle.FormCreate(Sender: TObject);
+var i,j:integer;
+begin
+path:=ExtractFileDir(Application.ExeName);
+Buf:=TBitmap.Create;
+Buf.Width:=960;
+Buf.Height:=640;
+
+Open:=TJpegImage.Create;
+Original.LoadFromFile(path+'\Puzzles\Bender.jpg');
+
+Original:=Tbitmap.Create;
+original.Width:=480;
+original.Height:=320;
+original.Canvas.stretchdraw(Rect(0,0,480,320),Open);
+for i:=0 to 31 do
+for j:=0 to 31 do
+begin
+Kopia[i,j]:=0;
+Pole[i,j]:=0;
+end;
+Razmer:=4;
+PazlGo;
+
+end;
+
+procedure TAliensPuzzle.N1611Click(Sender: TObject);
+begin
+razmer:=16;
+end;
+
+procedure TAliensPuzzle.N221Click(Sender: TObject);
+begin
+razmer:=2;
+end;
+
+procedure TAliensPuzzle.N32321Click(Sender: TObject);
+begin
+razmer:=32;
+end;
+
+procedure TAliensPuzzle.N3Click(Sender: TObject);
+begin
+AliensPuzzle.Close;
+end;
+
+procedure TAliensPuzzle.N441Click(Sender: TObject);
+begin
+razmer:=4;
+end;
+
+procedure TAliensPuzzle.N881Click(Sender: TObject);
+begin
+razmer:=8;
+end;
+
+procedure TAliensPuzzle.Timer1Timer(Sender: TObject);
+var i,j:integer;
+begin
+for i:=0 to razmer-1 do
+for j:=0 to razmer-1 do
+begin
+Buf.Canvas.Draw(0,0,Original);
+Buf.Canvas.Draw(i*xx+480,j*yy,pazl[kopia[i,j]]);
+end;
+AliensPuzzle.Canvas.draw(0,0,Buf);
+end;
+
+procedure PazlGo;
+var i,j,n:integer;
+begin
+  for i:=0 to 31 do
+  for j:=0 to 31 do
+  begin
+    Kopia[i,j]:=0;
+    Pole[i,j]:=0;
+  end;
+  case razmer of
+    2:begin xx:=240; yy:=160; end;
+    4:begin xx:=120; yy:=80; end;
+    8:begin xx:=60; yy:=40; end;
+    16:begin xx:=30; yy:=20; end;
+    32:begin xx:=15; yy:=10; end;
+  end;
+  n:=1;
+  for i:=0 to razmer-1 do
+    for j:=0 to razmer-1 do
+      begin
+        pazl[n]:=tbitmap.Create;
+        Pazl[n].Width:=xx;
+        Pazl[n].Height:=yy;
+        Pazl[n].Canvas.CopyRect(Rect(0,0,xx,yy),original.Canvas,rect(i*xx,j*yy,i*xx+xx-1,j*yy+yy-1));
+        n:=n+1;
+      end;
+  n:=1;
+  randomize;
+  while (n<=razmer*razmer) do
+    begin
+      i:=random(razmer);
+      j:=random(razmer);
+      if kopia[i,j]=0 then
+        begin
+          kopia[i,j]:=n;
+          n:=n+1;
+        end;
+    end;
+
+end;
+end.

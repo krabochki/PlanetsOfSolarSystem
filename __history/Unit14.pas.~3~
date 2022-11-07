@@ -1,0 +1,97 @@
+unit Unit14;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.DBCtrls,
+  Vcl.Imaging.pngimage;
+
+type
+  Tplanetsworld = class(TForm)
+    planet: TShape;
+    bg: TImage;
+    history: TMemo;
+    colorpen: TComboBox;
+    emotions: TComboBox;
+    name: TEdit;
+    color: TImage;
+    Image1: TImage;
+    colordlg: TColorDialog;
+    procedure FormCreate(Sender: TObject);
+    procedure colorpenMouseEnter(Sender: TObject);
+    procedure emotionsMouseEnter(Sender: TObject);
+    procedure nameMouseEnter(Sender: TObject);
+    procedure nameMouseLeave(Sender: TObject);
+    procedure colorMouseLeave(Sender: TObject);
+    procedure colorMouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
+    procedure colorMouseEnter(Sender: TObject);
+    procedure colorClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  planetsworld: Tplanetsworld;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tplanetsworld.colorMouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
+begin
+planetsworld.Cursor:=1;
+end;
+
+procedure Tplanetsworld.colorpenMouseEnter(Sender: TObject);
+begin
+colorpen.Cursor:=2;
+end;
+
+procedure Tplanetsworld.emotionsMouseEnter(Sender: TObject);
+begin
+emotions.Cursor:=2;
+end;
+
+procedure Tplanetsworld.FormCreate(Sender: TObject);
+begin
+colorpen.Cursor:=1;
+emotions.Cursor:=1;
+planetsworld.Cursor:=1;
+emotions.ItemIndex:=0;
+colorpen.ItemIndex:=0;
+end;
+
+procedure Tplanetsworld.colorClick(Sender: TObject);
+var coler:tcolor;
+begin
+if colordlg.execute then colordlg.color:=coler;
+end;
+
+procedure Tplanetsworld.colorMouseEnter(Sender: TObject);
+begin
+planetsworld.Cursor:=2;
+end;
+
+procedure Tplanetsworld.colorMouseLeave(Sender: TObject);
+begin
+planetsworld.Cursor:=1;
+end;
+
+procedure Tplanetsworld.nameMouseEnter(Sender: TObject);
+begin
+name.Cursor:=5;
+history.Cursor:=5;
+end;
+
+procedure Tplanetsworld.nameMouseLeave(Sender: TObject);
+begin
+name.Cursor:=1;
+history.Cursor:=1;
+end;
+
+end.

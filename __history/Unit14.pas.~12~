@@ -1,0 +1,293 @@
+unit Unit14;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.DBCtrls,
+  Vcl.Imaging.pngimage, JPEG;
+
+type
+  Tplanetsworld = class(TForm)
+    bg: TImage;
+    history: TMemo;
+    colorpen: TComboBox;
+    emotions: TComboBox;
+    name: TEdit;
+    colordlg: TColorDialog;
+    planet: TImage;
+    colorplanet: TComboBox;
+    pen: TImage;
+    emotionspic: TImage;
+    eyes: TImage;
+    accessories: TImage;
+    circles: TImage;
+    eyespic: TImage;
+    add: TImage;
+    create: TImage;
+    addpic: TImage;
+    coloradd: TImage;
+    acspic: TImage;
+    colorcr: TImage;
+    crc: TImage;
+    Panel1: TPanel;
+    SaveDialog1: TSaveDialog;
+    procedure FormCreate(Sender: TObject);
+    procedure colorpenMouseEnter(Sender: TObject);
+    procedure emotionsMouseEnter(Sender: TObject);
+    procedure nameMouseEnter(Sender: TObject);
+    procedure nameMouseLeave(Sender: TObject);
+    procedure colorMouseLeave(Sender: TObject);
+    procedure colorMouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
+    procedure colorMouseEnter(Sender: TObject);
+    procedure colorplanetChange(Sender: TObject);
+    procedure colorpenChange(Sender: TObject);
+    procedure emotionsChange(Sender: TObject);
+    procedure accessoriesMouseEnter(Sender: TObject);
+    procedure accessoriesMouseLeave(Sender: TObject);
+    procedure createMouseEnter(Sender: TObject);
+    procedure createMouseLeave(Sender: TObject);
+    procedure eyespicClick(Sender: TObject);
+    procedure addClick(Sender: TObject);
+    procedure coloraddClick(Sender: TObject);
+    procedure accessoriesClick(Sender: TObject);
+    procedure circlesClick(Sender: TObject);
+    procedure colorcrClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure createClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  planetsworld: Tplanetsworld;
+  path1,path2,path3:string;
+  clickeyes,clickadd,w,xx,clickacs,clickcr,w1:integer;
+  bmp: TBitmap;
+jpg: TJPEGImage;
+DC: hDC;
+save:string;
+
+implementation
+
+{$R *.dfm}
+
+uses Unit13,unit8,unit25;
+
+procedure Tplanetsworld.colorMouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
+begin
+planetsworld.Cursor:=1;
+end;
+
+procedure Tplanetsworld.colorpenChange(Sender: TObject);
+var i:integer;
+begin
+with colorpen do
+for i := 0 to 34 do
+  begin
+    if itemindex=i then
+      pen.picture.LoadFromFile(path1+'переодевалка планеты\свечение\'+inttostr(i+1)+'.png');
+  end;
+end;
+
+procedure Tplanetsworld.colorpenMouseEnter(Sender: TObject);
+begin
+colorpen.Cursor:=2;
+end;
+
+procedure Tplanetsworld.colorplanetChange(Sender: TObject);
+var i:integer;
+begin
+with colorplanet do
+for i := 0 to 47 do
+  begin
+    if itemindex=i then
+      planet.picture.LoadFromFile(path1+'переодевалка планеты\colorofplanet\'+inttostr(i+1)+'.png');
+  end;
+end;
+
+procedure Tplanetsworld.createClick(Sender: TObject);
+begin
+bmp.Free;
+bmp := TBitmap.Create;
+try
+DC := GetDC(panel1.Handle);
+try
+
+bmp.Width := panel1.Width;
+bmp.Height := panel1.Height;
+// получаем снимок
+BitBlt(bmp.Canvas.Handle, 0, 0, bmp.Width, bmp.Height,
+DC, 0, 0, SRCCOPY);
+finally
+ReleaseDC(DC, panel1.Handle);
+end;
+
+// конвертируем Bitmap в JPEG и сохраняем
+
+jpg:= TJPEGImage.Create;
+if savedialog1.Execute then
+     save:=savedialog1.FileName+'.jpg';
+try
+
+jpg.Assign(bmp);
+jpg.SaveToFile(save);
+finally
+jpg.Free;
+end;
+finally
+bmp.Free;
+end;
+end;
+
+procedure Tplanetsworld.createMouseEnter(Sender: TObject);
+begin
+planetsworld.Cursor:=2;
+end;
+
+procedure Tplanetsworld.createMouseLeave(Sender: TObject);
+begin
+planetsworld.Cursor:=1;
+end;
+
+procedure Tplanetsworld.emotionsChange(Sender: TObject);
+var i:integer;
+begin
+with emotions do
+for i := 0 to 14 do
+  begin
+    if itemindex=i then   begin
+      emotionspic.picture.LoadFromFile(path1+'переодевалка планеты\эмоции\'+inttostr(i+1)+'.png'); eyes.Visible:=true; end;
+    if ((itemindex=12) or (itemindex=11) or (itemindex=10)) then eyes.Visible:=false;
+    if (itemindex=7) or (itemindex=5) then begin eyes.BringToFront;  acspic.BringToFront; end;
+
+
+
+  end;
+
+end;
+
+procedure Tplanetsworld.emotionsMouseEnter(Sender: TObject);
+begin
+emotions.Cursor:=2;
+end;
+
+procedure Tplanetsworld.eyespicClick(Sender: TObject);
+begin
+if ((emotions.ItemIndex=10) or (emotions.ItemIndex=11) or (emotions.ItemIndex=12)) then
+form13.showmodal else begin
+if clickeyes<=7 then
+clickeyes:=clickeyes+1 else clickeyes:=1;
+
+eyes.Picture.LoadFromFile(path1+'\переодевалка планеты\eyes\'+inttostr(clickeyes)+'.png')
+end;
+end;
+
+procedure Tplanetsworld.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+planets2.Show;
+planets.show;
+end;
+
+procedure Tplanetsworld.FormCreate(Sender: TObject);
+begin
+path1:=extractfiledir(application.ExeName);
+path1:=path1+'\';
+colorpen.Cursor:=1;
+emotions.Cursor:=1;
+planetsworld.Cursor:=1;
+emotions.ItemIndex:=0;
+colorpen.ItemIndex:=0;
+colorplanet.ItemIndex:=13;
+clickeyes:=0;
+clickadd:=0;
+clickacs:=1;
+end;
+
+procedure Tplanetsworld.accessoriesClick(Sender: TObject);
+begin
+if clickacs<=22 then
+clickacs:=clickacs+1 else clickacs:=1;
+
+acspic.Picture.LoadFromFile(path1+'\переодевалка планеты\аксессуары\'+inttostr(clickacs)+'.png')
+end;
+
+procedure Tplanetsworld.accessoriesMouseEnter(Sender: TObject);
+begin
+planetsworld.Cursor:=2;
+end;
+
+procedure Tplanetsworld.accessoriesMouseLeave(Sender: TObject);
+begin
+planetsworld.Cursor:=1;
+end;
+
+procedure Tplanetsworld.addClick(Sender: TObject);
+begin
+   w:=2;
+if clickadd<=4 then
+clickadd:=clickadd+1 else clickadd:=0;
+ coloradd.Visible:=true;
+ if clickadd=0 then   coloradd.Visible:=false;
+
+addpic.Picture.LoadFromFile(path1+'\переодевалка планеты\узоры\'+inttostr(clickadd)+'.png')
+end;
+
+procedure Tplanetsworld.circlesClick(Sender: TObject);
+begin
+   w1:=2;
+if clickcr<=8 then
+clickcr:=clickcr+1 else clickcr:=0;
+ colorcr.Visible:=true;
+ if clickcr=0 then   colorcr.Visible:=false;
+
+crc.Picture.LoadFromFile(path1+'\переодевалка планеты\circles\'+inttostr(clickcr)+'.png')
+end;
+
+procedure Tplanetsworld.coloraddClick(Sender: TObject);
+begin
+path2:=path1+'\переодевалка планеты\узоры\узор '+inttostr(clickadd)+'\';
+addpic.Picture.LoadFromFile(path2+inttostr(w)+'.png');
+if clickadd=1 then xx:=17;
+if clickadd=2 then xx:=18;
+if clickadd=3 then xx:=16;
+if clickadd=4 then xx:=12;
+if clickadd=5 then xx:=14;
+if w<xx then w:=w+1 else w:=1;
+end;
+
+procedure Tplanetsworld.colorcrClick(Sender: TObject);
+begin
+path3:=path1+'\переодевалка планеты\circles\'+inttostr(clickcr)+'\';
+crc.Picture.LoadFromFile(path3+inttostr(w1)+'.png');
+if w1<9 then w1:=w1+1 else w1:=1;
+end;
+
+procedure Tplanetsworld.colorMouseEnter(Sender: TObject);
+begin
+planetsworld.Cursor:=2;
+end;
+
+procedure Tplanetsworld.colorMouseLeave(Sender: TObject);
+begin
+planetsworld.Cursor:=1;
+end;
+
+procedure Tplanetsworld.nameMouseEnter(Sender: TObject);
+begin
+name.Cursor:=5;
+history.Cursor:=5;
+end;
+
+procedure Tplanetsworld.nameMouseLeave(Sender: TObject);
+begin
+name.Cursor:=1;
+history.Cursor:=1;
+end;
+
+
+end.

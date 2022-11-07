@@ -1,0 +1,52 @@
+[Version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+CopyFiles = Scheme.Cur, 
+AddReg    = Scheme.Reg
+
+[DestinationDirs]
+Scheme.Cur = 10,"%CUR_DIR%"
+Scheme.Txt = 10,"%CUR_DIR%"
+
+[Scheme.Reg]
+HKCU,"Control Panel\Cursors\Schemes","%SCHEME_NAME%",,"%10%\%CUR_DIR%\%pointer%,%10%\%CUR_DIR%\%help%,%10%\%CUR_DIR%\%work%,%10%\%CUR_DIR%\%busy%,%10%\%CUR_DIR%\%Cross%,%10%\%CUR_DIR%\%Text%,%10%\%CUR_DIR%\%Hand%,%10%\%CUR_DIR%\%Unavailiable%,%10%\%CUR_DIR%\%Vert%,%10%\%CUR_DIR%\%Horz%,%10%\%CUR_DIR%\%Dgn1%,%10%\%CUR_DIR%\%Dgn2%,%10%\%CUR_DIR%\%move%,%10%\%CUR_DIR%\%alternate%,%10%\%CUR_DIR%\%link%"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Runonce\Setup\","",,"rundll32.exe shell32.dll,Control_RunDLL main.cpl,,1"
+
+; -- Common Information
+
+[Scheme.Cur]
+"PF3C_zlk_Arrow.cur"
+"PF3C_zlk_Help.cur"
+"PF3C_zlk_AppStart.ani"
+"PF3C_zlk_Wait.ani"
+"PF3C_zlk_Cross.cur"
+"PF3C_zlk_IBream.cur"
+"PF3C_zlk_Handwrite.cur"
+"PF3C_zlk_NO.cur"
+"PF3C_zlk_size_1.cur"
+"PF3C_zlk_size_2.cur"
+"PF3C_zlk_size_3.cur"
+"PF3C_zlk_size_4.cur"
+"PF3C_zlk_Move.cur"
+"PF3C_zlk_UpArrow.cur"
+"PF3C_zlk_Click2.cur"
+
+[Strings]
+CUR_DIR         = "Cursors\pixelfun 3"
+SCHEME_NAME     = "pixelfun 3"
+pointer		= "PF3C_zlk_Arrow.cur"
+help		= "PF3C_zlk_Help.cur"
+work		= "PF3C_zlk_AppStart.ani"
+busy		= "PF3C_zlk_Wait.ani"
+cross		= "PF3C_zlk_Cross.cur"
+text		= "PF3C_zlk_IBream.cur"
+hand		= "PF3C_zlk_Handwrite.cur"
+unavailiable	= "PF3C_zlk_NO.cur"
+vert		= "PF3C_zlk_size_1.cur"
+horz		= "PF3C_zlk_size_2.cur"
+dgn1		= "PF3C_zlk_size_3.cur"
+dgn2		= "PF3C_zlk_size_4.cur"
+move		= "PF3C_zlk_Move.cur"
+alternate	= "PF3C_zlk_UpArrow.cur"
+link		= "PF3C_zlk_Click2.cur"

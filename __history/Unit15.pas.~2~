@@ -1,0 +1,51 @@
+unit Unit15;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls,
+  Vcl.Imaging.pngimage;
+
+type
+  Tspaceracersfirst = class(TForm)
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Image5: TImage;
+    Image6: TImage;
+    procedure Image4Click(Sender: TObject);
+    procedure Image5Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+ a:integer;
+  spaceracersfirst: Tspaceracersfirst;
+implementation
+       uses unit17, Unit18;
+{$R *.dfm}
+
+procedure Tspaceracersfirst.Image3Click(Sender: TObject);
+begin
+form18.showmodal;
+a:=1;
+end;
+
+procedure Tspaceracersfirst.Image4Click(Sender: TObject);
+begin
+spaceracersfirst.Close;
+end;
+
+procedure Tspaceracersfirst.Image5Click(Sender: TObject);
+begin
+spaceracerssecond.show;
+image6.Visible:=true;
+end;
+
+end.

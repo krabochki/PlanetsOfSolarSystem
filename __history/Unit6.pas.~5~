@@ -1,0 +1,110 @@
+unit Unit6;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, Vcl.StdCtrls,unit2,unit3, Vcl.Imaging.pngimage;
+
+type
+  TForm6 = class(TForm)
+    Image1: TImage;
+    Image2: TImage;
+    Image8: TImage;
+    Image3: TImage;
+    Button1: TButton;
+    Image4: TImage;
+    Image9: TImage;
+    Label1: TLabel;
+    Image12: TImage;
+    Image13: TImage;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Image9Click(Sender: TObject);
+    procedure Image8Click(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+    procedure Image12Click(Sender: TObject);
+    procedure Image13Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form6: TForm6;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm6.Button1Click(Sender: TObject);
+begin
+form3.show;
+form6.Hide;
+end;
+
+procedure TForm6.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+application.Terminate;
+end;
+
+procedure TForm6.FormCreate(Sender: TObject);
+begin
+image1.Picture.LoadFromFile('фотокарточки\фонноа.bmp');
+image2.Picture.LoadFromFile('фотокарточки\praktikani\2a.bmp');
+image3.Picture.LoadFromFile('фотокарточки\дедок.bmp');
+image9.Picture.LoadFromFile('фотокарточки\кнопка33332.bmp');
+image8.Picture.LoadFromFile('фотокарточки\praktikani\красная башка.bmp');
+image13.Picture.LoadFromFile('фотокарточки\хело.bmp');
+image12.Picture.LoadFromFile('фотокарточки\имба кнопка.bmp');
+label1.Caption:='А вот и оставшиеся практиканты. Знакомься'+#13#10+'с ними так же, как с прошлыми ребятами, и '+#13#10+'нажимай "В путь": поедем дальше. ';
+end;
+
+procedure TForm6.Image12Click(Sender: TObject);
+begin
+     Image1.Picture.LoadFromFile('фотокарточки\фонноа.bmp');
+    image8.Visible:=true;
+     image3.Visible:=true;
+     image12.visible:=false;
+     image2.Visible:=true;
+     image13.Visible:=true;
+end;
+
+procedure TForm6.Image13Click(Sender: TObject);
+begin
+form2.show;
+form6.Hide;
+end;
+
+procedure TForm6.Image2Click(Sender: TObject);
+begin
+     Image1.Picture.LoadFromFile('фотокарточки\praktikani\фонполина.bmp');
+    image8.Visible:=false;
+     image3.Visible:=false;
+     image12.visible:=true;
+     image13.Visible:=false;
+end;
+
+procedure TForm6.Image8Click(Sender: TObject);
+begin
+    Image1.Picture.LoadFromFile('фотокарточки\praktikani\фонкрасный.bmp');
+    image2.Visible:=false;
+     image3.Visible:=false;
+     image12.visible:=true;
+     image13.visible:=false;
+          image8.visible:=false;
+end;
+
+procedure TForm6.Image9Click(Sender: TObject);
+begin
+image9.Visible:=false;
+image4.Visible:=false;
+label1.Visible:=false;
+image8.Enabled:=true;
+image2.Enabled:=true;
+image13.Visible:=true;
+end;
+
+end.

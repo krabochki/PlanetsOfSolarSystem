@@ -1,0 +1,163 @@
+unit Unit2;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, XPMan, ExtCtrls, Vcl.Imaging.pngimage;
+
+type
+  TForm2 = class(TForm)
+    Image2: TImage;
+    Label1: TLabel;
+    Timer1: TTimer;
+    k1: TImage;
+    k2: TImage;
+    k3: TImage;
+    k4: TImage;
+    k5: TImage;
+    Timer3: TTimer;
+    Timer4: TTimer;
+    Timer5: TTimer;
+    Timer6: TTimer;
+    Timer2: TTimer;
+    Image1: TImage;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Timer1Timer(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure Image2Click(Sender: TObject);
+
+    procedure FormActivate(Sender: TObject);
+    procedure Timer2Timer(Sender: TObject);
+    procedure Timer3Timer(Sender: TObject);
+    procedure Timer4Timer(Sender: TObject);
+    procedure Timer5Timer(Sender: TObject);
+    procedure Timer6Timer(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+    fon:TBitmap;
+  korb:TBitmap;
+  x:Integer;
+  shx:integer;
+
+implementation
+
+uses Unit3,unit1;
+
+{$R *.dfm}
+
+
+procedure TForm2.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Application.terminate;
+end;
+
+procedure TForm2.FormCreate(Sender: TObject);
+begin
+form2.Cursor:=1;
+k1.picture.loadfromfile('фотокарточки\комета.bmp');
+k2.picture.loadfromfile('фотокарточки\комета.bmp');
+k3.picture.loadfromfile('фотокарточки\комета.bmp');
+k4.picture.loadfromfile('фотокарточки\комета.bmp');
+k5.picture.loadfromfile('фотокарточки\комета.bmp');
+image1.Picture.LoadFromFile('фотокарточки\фон2.bmp');
+image2.Picture.LoadFromFile('фотокарточки\кнопка4.bmp');
+end;
+
+procedure TForm2.Timer1Timer(Sender: TObject);
+begin
+x:=x+shx;
+if x>500 then shx:=shx*-1;
+if x<0 then shx:=shx*-1;
+Image1.Canvas.Draw(0,0,fon);
+Image1.Canvas.Draw(x,300,korb);
+if x>500 then begin
+image2.visible:=true;
+Timer1.Enabled := False;
+end;  end;
+
+procedure TForm2.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+if Key=37 then
+begin
+
+shx:=-3;
+x:=x-20;  end;
+if Key=39 then begin
+shx:=3;
+x:=x+20;  end;
+end;
+
+procedure TForm2.Image2Click(Sender: TObject);
+begin
+form3.Show;
+Form2.Hide;
+end;
+
+
+procedure TForm2.FormActivate(Sender: TObject);
+begin
+//form1.mediaplayer1.stop;
+//form1.mediaplayer1.notify:=false;
+image1.Align:=alClient;
+shx:=3;
+fon:=TBitmap.Create;
+
+fon.loadfromfile('фотокарточки\фон2.bmp');
+korb:=TBitmap.create;
+korb.LoadFromFile('фотокарточки\Без имени-7.bmp');
+korb.Transparent:=True;
+Image1.Canvas.Draw(0,0,fon);
+image1.Canvas.Draw(x,300,korb);
+end;
+procedure TForm2.Timer2Timer(Sender: TObject);
+begin
+k5.Visible:=false;
+k1.visible:=true;
+Timer2.Enabled:=false;
+Timer3.Enabled:=True;
+end;
+
+procedure TForm2.Timer3Timer(Sender: TObject);
+begin
+k1.Visible:=false;
+k2.visible:=true;
+Timer3.Enabled:=false;
+Timer4.Enabled:=True;
+end;
+
+procedure TForm2.Timer4Timer(Sender: TObject);
+begin
+k2.Visible:=false;
+k3.visible:=true;
+Timer4.Enabled:=false;
+Timer5.Enabled:=True;
+end;
+
+procedure TForm2.Timer5Timer(Sender: TObject);
+begin
+k3.Visible:=false;
+k4.visible:=true;
+Timer5.Enabled:=false;
+Timer6.Enabled:=True;
+end;
+
+procedure TForm2.Timer6Timer(Sender: TObject);
+begin
+k4.Visible:=false;
+k5.visible:=true;
+Timer6.Enabled:=false;
+Timer2.Enabled:=True;
+end;
+
+end.

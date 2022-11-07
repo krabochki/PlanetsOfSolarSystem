@@ -1,0 +1,39 @@
+unit Unit10;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus;
+
+type
+  TTHEORIES = class(TForm)
+    MainMenu1: TMainMenu;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  THEORIES: TTHEORIES;
+
+implementation
+
+{$R *.dfm}
+
+procedure TTHEORIES.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+application.Terminate;
+end;
+
+procedure TTHEORIES.FormCreate(Sender: TObject);
+begin
+theories.Cursor:=1;
+  Screen.MenuFont.Name := 'Fifaks 1.0 dev1';
+  Screen.MenuFont.size := 12;
+end;
+
+end.

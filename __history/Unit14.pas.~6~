@@ -1,0 +1,143 @@
+unit Unit14;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.DBCtrls,
+  Vcl.Imaging.pngimage;
+
+type
+  Tplanetsworld = class(TForm)
+    bg: TImage;
+    history: TMemo;
+    colorpen: TComboBox;
+    emotions: TComboBox;
+    name: TEdit;
+    colordlg: TColorDialog;
+    planet: TImage;
+    colorplanet: TComboBox;
+    pen: TImage;
+    emotionspic: TImage;
+    eyes: TImage;
+    accessories: TImage;
+    circles: TImage;
+    eyespic: TImage;
+    add: TImage;
+    create: TImage;
+    procedure FormCreate(Sender: TObject);
+    procedure colorpenMouseEnter(Sender: TObject);
+    procedure emotionsMouseEnter(Sender: TObject);
+    procedure nameMouseEnter(Sender: TObject);
+    procedure nameMouseLeave(Sender: TObject);
+    procedure colorMouseLeave(Sender: TObject);
+    procedure colorMouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
+    procedure colorMouseEnter(Sender: TObject);
+    procedure colorplanetChange(Sender: TObject);
+    procedure colorpenChange(Sender: TObject);
+    procedure emotionsChange(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  planetsworld: Tplanetsworld;
+  path1:string;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tplanetsworld.colorMouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
+begin
+planetsworld.Cursor:=1;
+end;
+
+procedure Tplanetsworld.colorpenChange(Sender: TObject);
+var i:integer;
+begin
+with colorpen do
+for i := 0 to 34 do
+  begin
+    if itemindex=i then
+      pen.picture.LoadFromFile(path1+'переодевалка планеты\свечение\'+inttostr(i+1)+'.png');
+  end;
+end;
+
+procedure Tplanetsworld.colorpenMouseEnter(Sender: TObject);
+begin
+colorpen.Cursor:=2;
+end;
+
+procedure Tplanetsworld.colorplanetChange(Sender: TObject);
+var i:integer;
+begin
+with colorplanet do
+for i := 0 to 34 do
+  begin
+    if itemindex=i then
+      planet.picture.LoadFromFile(path1+'переодевалка планеты\colorofplanet\'+inttostr(i+1)+'.png');
+  end;
+end;
+
+procedure Tplanetsworld.emotionsChange(Sender: TObject);
+var i:integer;
+begin
+with emotions do
+for i := 0 to 13 do
+  begin
+    if itemindex=i then   begin
+      emotionspic.picture.LoadFromFile(path1+'переодевалка планеты\эмоции\'+inttostr(i+1)+'.png'); eyes.Visible:=true; end;
+    if ((itemindex=12) or (itemindex=11) or (itemindex=10)) then eyes.Visible:=false;
+    if (itemindex=7) then eyes.BringToFront;
+
+
+
+  end;
+
+end;
+
+procedure Tplanetsworld.emotionsMouseEnter(Sender: TObject);
+begin
+emotions.Cursor:=2;
+end;
+
+procedure Tplanetsworld.FormCreate(Sender: TObject);
+begin
+path1:=extractfiledir(application.ExeName);
+path1:=path1+'\';
+colorpen.Cursor:=1;
+emotions.Cursor:=1;
+planetsworld.Cursor:=1;
+emotions.ItemIndex:=0;
+colorpen.ItemIndex:=0;
+colorplanet.ItemIndex:=13;
+end;
+
+procedure Tplanetsworld.colorMouseEnter(Sender: TObject);
+begin
+planetsworld.Cursor:=2;
+end;
+
+procedure Tplanetsworld.colorMouseLeave(Sender: TObject);
+begin
+planetsworld.Cursor:=1;
+end;
+
+procedure Tplanetsworld.nameMouseEnter(Sender: TObject);
+begin
+name.Cursor:=5;
+history.Cursor:=5;
+end;
+
+procedure Tplanetsworld.nameMouseLeave(Sender: TObject);
+begin
+name.Cursor:=1;
+history.Cursor:=1;
+end;
+
+end.

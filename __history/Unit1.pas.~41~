@@ -1,0 +1,173 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, Vcl.MPlayer,unit4, Data.DB, Datasnap.DBClient,
+  Datasnap.Win.MConnect, Datasnap.Win.SConnect, shellapi;
+
+type
+  TForm1 = class(TForm)
+    Image1: TImage;
+    Label1: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Timer1: TTimer;
+    Timer2: TTimer;
+    Timer3: TTimer;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    MediaPlayer1: TMediaPlayer;
+    Label2: TLabel;
+    procedure FormCreate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure Timer2Timer(Sender: TObject);
+    procedure Timer3Timer(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure Label2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  h,h1,h2,h3,h4:hcursor;
+
+implementation
+
+uses unit15,Unit2,unit5, Unit3, Unit6, Unit8, Unit9, Unit10, Unit12, Unit7, Unit11, Unit14,unit16,
+  Unit18, Unit25, unit26,unit27, Unit28, Unit23;
+
+{$R *.dfm}
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+h:=loadcursorfromfile('C:\ДОСТАЛИ\pixelfun 3\hi.cur');
+h1:=loadcursorfromfile('C:\ДОСТАЛИ\pixelfun 3\PF3C_zlk_Click2.cur');
+h2:=loadcursorfromfile('C:\ДОСТАЛИ\pixelfun 3\PF3C_zlk_NO.cur');
+h3:=loadcursorfromfile('C:\ДОСТАЛИ\pixelfun 3\PF3C_zlk_Help.cur');
+h4:=loadcursorfromfile('C:\ДОСТАЛИ\pixelfun 3\pen.cur');
+screen.Cursors[1]:=h;
+screen.Cursors[2]:=h1;
+screen.Cursors[3]:=h2;
+screen.Cursors[4]:=h3;
+screen.Cursors[5]:=h4;
+form1.Cursor:=1;
+unit4.songstatement:=4;
+unit4.a:=2;
+
+
+image1.picture.LoadFromFile('фотокарточки\фон.bmp');
+image2.Picture.LoadFromFile('фотокарточки\Без имени-11.bmp');
+Image1.Align:=alClient;
+
+MediaPlayer1.FileName := GetCurrentDir()+'\plastinki\start.mp3';
+MediaPlayer1.Open;
+MediaPlayer1.Play;
+
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+form28.Show;
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+begin
+   label5.visible:=False;
+label1.visible:=true;
+Timer1.Enabled:=false;
+Timer2.Enabled:=True;
+end;
+
+procedure TForm1.Timer2Timer(Sender: TObject);
+begin
+label1.Visible:=false;
+label4.visible:=true;
+Timer2.Enabled:=false;
+Timer3.Enabled:=True;
+end;
+
+procedure TForm1.Timer3Timer(Sender: TObject);
+begin
+label4.Visible:=false;
+label5.visible:=true;
+Timer3.Enabled:=false;
+Timer1.Enabled:=True;
+end;
+
+procedure TForm1.Image2Click(Sender: TObject);
+begin
+form3.show;
+form1.Hide;
+mediaplayer1.destroy;
+end;
+
+procedure TForm1.Image3Click(Sender: TObject);
+begin
+
+image4.Align:=alclient;
+image4.Visible:=true;
+form4.showmodal;
+end;
+
+procedure TForm1.Label2Click(Sender: TObject);
+begin
+   shellexecute(0,pchar('open'),pchar ('fggff.chm'),nil,nil,SW_SHOW);
+
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+planets2.show;
+planets.Showmodal;
+form3.Show;
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+form12.show;
+aliens.Showmodal;
+form3.Show;
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+planets.show;
+theories.Hide;
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);
+begin
+planetsworld.show;
+end;
+
+procedure TForm1.Button6Click(Sender: TObject);
+begin
+form27.show;
+end;
+
+procedure TForm1.Button7Click(Sender: TObject);
+begin
+form28.show;
+end;
+
+procedure TForm1.Button8Click(Sender: TObject);
+begin
+form2.show;
+end;
+
+end.

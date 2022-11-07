@@ -1,0 +1,70 @@
+unit Unit15;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls,
+  Vcl.Imaging.pngimage;
+
+type
+  Tspaceracersfirst = class(TForm)
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Image5: TImage;
+    Image6: TImage;
+    procedure Image4Click(Sender: TObject);
+    procedure Image5Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure Image3MouseEnter(Sender: TObject);
+    procedure Image3MouseLeave(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+ a:integer;
+  spaceracersfirst: Tspaceracersfirst;
+implementation
+       uses unit17, Unit18;
+{$R *.dfm}
+
+procedure Tspaceracersfirst.FormCreate(Sender: TObject);
+begin
+spaceracersfirst.Cursor:=1;
+end;
+
+procedure Tspaceracersfirst.Image3Click(Sender: TObject);
+begin
+
+form18.ShowModal;
+a:=1;
+end;
+
+procedure Tspaceracersfirst.Image3MouseEnter(Sender: TObject);
+begin
+spaceracersfirst.Cursor:=2;
+end;
+
+procedure Tspaceracersfirst.Image3MouseLeave(Sender: TObject);
+begin
+spaceracersfirst.Cursor:=1;
+end;
+
+procedure Tspaceracersfirst.Image4Click(Sender: TObject);
+begin
+spaceracersfirst.Close;
+end;
+
+procedure Tspaceracersfirst.Image5Click(Sender: TObject);
+begin
+spaceracerssecond.show;
+image6.Visible:=true;
+end;
+
+end.

@@ -1,0 +1,52 @@
+unit Unit4;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls,
+  Vcl.Imaging.pngimage, unit1,unit3;
+
+type
+  Tform4 = class(TForm)
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Image5: TImage;
+    Image6: TImage;
+    Image7: TImage;
+    Image8: TImage;
+    Image9: TImage;
+    procedure Image4Click(Sender: TObject);
+    procedure Image5Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  form4: Tform4;
+  a:integer;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tform4.Image4Click(Sender: TObject);
+begin
+form1.mediaplayer1.stop;
+a:=9;
+image5.Visible:=true;
+image4.Visible:=false;
+end;
+
+procedure Tform4.Image5Click(Sender: TObject);
+begin
+ form1.mediaplayer1.play;
+image4.Visible:=true;
+image5.Visible:=false;
+end;
+
+end.

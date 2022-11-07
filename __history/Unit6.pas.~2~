@@ -1,0 +1,43 @@
+unit Unit6;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls;
+
+type
+  TForm6 = class(TForm)
+    Image1: TImage;
+    Image2: TImage;
+    Image8: TImage;
+    Image3: TImage;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form6: TForm6;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm6.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+application.Terminate;
+end;
+
+procedure TForm6.FormCreate(Sender: TObject);
+begin
+image1.Picture.LoadFromFile('фотокарточки\фонноа.bmp');
+image2.Picture.LoadFromFile('фотокарточки\praktikani\2a.bmp');
+image3.Picture.LoadFromFile('фотокарточки\дедок.bmp');
+image8.Picture.LoadFromFile('фотокарточки\praktikani\красная башка.bmp');
+end;
+
+end.

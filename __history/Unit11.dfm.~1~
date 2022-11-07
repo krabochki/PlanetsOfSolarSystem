@@ -1,0 +1,65 @@
+object AliensPuzzle: TAliensPuzzle
+  Left = 0
+  Top = 0
+  Caption = 'AliensPuzzle'
+  ClientHeight = 449
+  ClientWidth = 862
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object OpenDialog1: TOpenDialog
+    Left = 70
+    Top = 83
+  end
+  object MainMenu1: TMainMenu
+    Left = 28
+    Top = 152
+    object N1: TMenuItem
+      Caption = #1060#1072#1081#1083
+      object N2: TMenuItem
+        Caption = #1054#1090#1082#1088#1099#1090#1100
+      end
+      object N3: TMenuItem
+        Caption = #1042#1099#1093#1086#1076
+        OnClick = N3Click
+      end
+    end
+    object N4: TMenuItem
+      Caption = #1056#1072#1079#1084#1077#1088
+      object N221: TMenuItem
+        Caption = '2'#1093'2'
+        OnClick = N221Click
+      end
+      object N441: TMenuItem
+        Caption = '4'#1093'4'
+        OnClick = N441Click
+      end
+      object N881: TMenuItem
+        Caption = '8'#1093'8'
+        OnClick = N881Click
+      end
+      object N1611: TMenuItem
+        Caption = '16'#1093'16'
+        OnClick = N1611Click
+      end
+      object N32321: TMenuItem
+        Caption = '32'#1093'32'
+        OnClick = N32321Click
+      end
+    end
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 368
+    Top = 256
+  end
+end

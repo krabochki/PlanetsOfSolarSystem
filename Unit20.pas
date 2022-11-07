@@ -1,0 +1,151 @@
+unit Unit20;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls;
+
+type
+  TForm20 = class(TForm)
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Timer1: TTimer;
+    procedure Image2Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure Image4Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Image2MouseEnter(Sender: TObject);
+    procedure Image2MouseLeave(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form20: TForm20;
+  xxx:integer;
+
+implementation
+          uses unit15,unit18;
+{$R *.dfm}
+
+procedure TForm20.FormCreate(Sender: TObject);
+begin
+form20.Cursor:=1;
+end;
+
+procedure TForm20.Image2Click(Sender: TObject);
+begin
+unit15.a:=1;
+form20.Close;
+    with form18 do begin           timer1.Interval:= 360;
+         timer2.Interval:= 450;
+         timer3.Interval:= 300 ;
+         timer4.Interval:= 600;
+         timer5.Interval:= 315;
+         timer6.Interval:= 330;
+         timer7.Interval:= 420;
+         timer8.Interval:=300 ;
+         timer9.Interval:= 420;
+         timer10.Interval:=360 ;
+   Block1.Left:=128;
+ Block1.Top:=-288;
+
+ Block2.Left:=550;
+ Block2.Top:=-216;
+
+ Block3.Left:=32;
+ Block3.Top:=-8;
+
+ Block4.Left:=205;
+ Block4.Top:=-32;
+
+ Block5.Left:=650;
+ Block5.Top:=-8;
+
+ Block6.Left:=452;
+ Block6.Top:=-112;
+
+ Block7.Left:=104;
+ Block7.Top:=-120;
+
+ Block8.Left:=295;
+ Block8.Top:=-176;
+
+ Block9.Left:=312;
+ Block9.Top:=-280;
+
+ Block10.Left:=32;
+ Block10.Top:=-240;
+
+ Car.Left:=209;
+ Car.Top:=580;
+
+ Bonus:=0;
+
+ Label1.Caption:='0';    Timer11.Enabled:=true;
+
+ Block1.Show;
+ Block2.Show;
+ Block3.Show;
+ Block4.Show;
+ Block5.Show;
+ Block6.Show;
+ Block7.Show;
+ Block8.Show;
+ Block9.Show;
+ Block10.Show;
+ Car.Show;
+
+ Timer1.Enabled:=true;
+ Timer2.Enabled:=true;
+ Timer3.Enabled:=true;
+ Timer4.Enabled:=true;
+ Timer5.Enabled:=true;
+ Timer6.Enabled:=true;
+ Timer7.Enabled:=true;
+ Timer8.Enabled:=true;
+ Timer9.Enabled:=true;
+ Timer10.Enabled:=true; end;
+end;
+
+procedure TForm20.Image2MouseEnter(Sender: TObject);
+begin
+form20.Cursor:=2;
+end;
+
+procedure TForm20.Image2MouseLeave(Sender: TObject);
+begin
+form20.Cursor:=1;
+end;
+
+procedure TForm20.Image3Click(Sender: TObject);
+begin    timer1.Enabled:=true;  xxx:=100;
+form20.Close;
+form18.Close;
+end;
+
+procedure TForm20.Image4Click(Sender: TObject);
+begin
+timer1.Enabled:=true;
+form18.hide;
+spaceracersfirst.hide;
+
+form18.Close;
+spaceracersfirst.close;
+form20.hide;
+form20.Close;
+xxx:=100;
+end;
+
+procedure TForm20.Timer1Timer(Sender: TObject);
+begin
+if xxx=100 then  begin timer1.Enabled:=false; form20.Close;  end;
+end;
+
+end.

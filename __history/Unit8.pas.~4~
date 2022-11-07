@@ -1,0 +1,57 @@
+unit Unit8;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.StdCtrls;
+
+type
+  TPLANETS = class(TForm)
+    MainMenu1: TMainMenu;
+    N1: TMenuItem;
+    N2: TMenuItem;
+    Label1: TLabel;
+    N5: TMenuItem;
+    N6: TMenuItem;
+    N7: TMenuItem;
+    N3: TMenuItem;
+    N4: TMenuItem;
+    N8: TMenuItem;
+    N9: TMenuItem;
+    N10: TMenuItem;
+    N11: TMenuItem;
+    N12: TMenuItem;
+    N13: TMenuItem;
+    N14: TMenuItem;
+    N15: TMenuItem;
+    N16: TMenuItem;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  PLANETS: TPLANETS;
+  s: textfile;
+
+implementation
+
+{$R *.dfm}
+
+procedure TPLANETS.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+application.Terminate;
+end;
+
+procedure TPLANETS.FormCreate(Sender: TObject);
+begin
+
+  Screen.MenuFont.Name := 'Fifaks 1.0 dev1';
+  Screen.MenuFont.size := 12;
+end;
+
+end.

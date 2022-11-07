@@ -1,0 +1,185 @@
+﻿unit Unit13;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.CheckLst,
+  Vcl.Imaging.pngimage;
+
+type
+  TPuzzleOpen = class(TForm)
+    bg: TImage;
+    pic: TImage;
+    t1: TImage;
+    t2: TImage;
+    t3: TImage;
+    t4: TImage;
+    t5: TImage;
+    t6: TImage;
+    play: TImage;
+    procedure t6Click(Sender: TObject);
+    procedure t5Click(Sender: TObject);
+    procedure t4Click(Sender: TObject);
+    procedure t3Click(Sender: TObject);
+    procedure t2Click(Sender: TObject);
+    procedure t1Click(Sender: TObject);
+    procedure playClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  PuzzleOpen: TPuzzleOpen;
+  number:integer;
+
+implementation
+
+{$R *.dfm}
+
+uses Unit11;
+
+procedure TPuzzleOpen.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+if unit9.koef=1 then planets.show;
+if unit9.koef=2 then aliens.show;
+if unit9.koef=3 then theories.show;
+puzzleopen.close;
+end;
+
+procedure TPuzzleOpen.FormCreate(Sender: TObject);
+begin
+t6.Picture.LoadFromFile('фотокарточки\ПАЗЗЛ\6b.png');
+t1.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\1a.png');
+t2.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\2a.png');
+t3.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\3a.png');
+t4.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\4a.png');
+t5.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\5a.png');
+pic.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\6.png');
+t6.Enabled:=false;
+t2.enabled:=true;
+t3.Enabled:=true;
+t4.Enabled:=true;
+t5.Enabled:=true;
+t1.Enabled:=true;
+number:=6;
+end;
+
+procedure TPuzzleOpen.playClick(Sender: TObject);
+begin
+alienspuzzle.showmodal;
+end;
+
+procedure TPuzzleOpen.t1Click(Sender: TObject);
+begin
+t6.Picture.LoadFromFile('фотокарточки\ПАЗЗЛ\6a.png');
+t1.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\1b.png');
+t2.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\2a.png');
+t3.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\3a.png');
+t4.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\4a.png');
+t5.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\5a.png');
+pic.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\1.png');
+t1.Enabled:=false;
+t2.enabled:=true;
+t3.Enabled:=true;
+t4.Enabled:=true;
+t5.Enabled:=true;
+t6.Enabled:=true;
+number:=1;
+end;
+
+procedure TPuzzleOpen.t2Click(Sender: TObject);
+begin
+t6.Picture.LoadFromFile('фотокарточки\ПАЗЗЛ\6a.png');
+t1.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\1a.png');
+t2.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\2b.png');
+t3.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\3a.png');
+t4.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\4a.png');
+t5.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\5a.png');
+pic.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\2.png');
+t2.Enabled:=false;
+t1.enabled:=true;
+t3.Enabled:=true;
+t4.Enabled:=true;
+t5.Enabled:=true;
+t6.Enabled:=true;
+number:=2;
+end;
+
+procedure TPuzzleOpen.t3Click(Sender: TObject);
+begin
+t6.Picture.LoadFromFile('фотокарточки\ПАЗЗЛ\6a.png');
+t1.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\1a.png');
+t2.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\2a.png');
+t3.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\3b.png');
+t4.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\4a.png');
+t5.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\5a.png');
+pic.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\3.png');
+t3.Enabled:=false;
+t2.enabled:=true;
+t1.Enabled:=true;
+t4.Enabled:=true;
+t5.Enabled:=true;
+t6.Enabled:=true;
+number:=3;
+end;
+
+procedure TPuzzleOpen.t4Click(Sender: TObject);
+begin
+t6.Picture.LoadFromFile('фотокарточки\ПАЗЗЛ\6a.png');
+t1.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\1a.png');
+t2.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\2a.png');
+t3.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\3a.png');
+t4.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\4b.png');
+t5.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\5a.png');
+pic.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\4.png');
+t4.Enabled:=false;
+t2.enabled:=true;
+t3.Enabled:=true;
+t1.Enabled:=true;
+t5.Enabled:=true;
+t6.Enabled:=true;
+number:=4;
+end;
+
+procedure TPuzzleOpen.t5Click(Sender: TObject);
+begin
+t6.Picture.LoadFromFile('фотокарточки\ПАЗЗЛ\6a.png');
+t1.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\1a.png');
+t2.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\2a.png');
+t3.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\3a.png');
+t4.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\4a.png');
+t5.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\5b.png');
+pic.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\5.png');
+t5.Enabled:=false;
+t2.enabled:=true;
+t3.Enabled:=true;
+t4.Enabled:=true;
+t1.Enabled:=true;
+t6.Enabled:=true;
+number:=5;
+end;
+
+procedure TPuzzleOpen.t6Click(Sender: TObject);
+begin
+t6.Picture.LoadFromFile('фотокарточки\ПАЗЗЛ\6b.png');
+t1.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\1a.png');
+t2.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\2a.png');
+t3.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\3a.png');
+t4.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\4a.png');
+t5.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\5a.png');
+pic.Picture.loadfromfile('фотокарточки\ПАЗЗЛ\6.png');
+t6.Enabled:=false;
+t2.enabled:=true;
+t3.Enabled:=true;
+t4.Enabled:=true;
+t5.Enabled:=true;
+t1.Enabled:=true;
+number:=6;
+end;
+
+end.

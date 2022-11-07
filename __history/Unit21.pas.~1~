@@ -1,0 +1,54 @@
+unit Unit21;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
+  Vcl.ExtCtrls;
+
+type
+  TForm21 = class(TForm)
+    Image1: TImage;
+    Label1: TLabel;
+    procedure Label1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form21: TForm21;
+
+implementation
+             uses unit18;
+{$R *.dfm}
+
+procedure TForm21.Label1Click(Sender: TObject);
+begin
+with form18 do          begin
+        Timer1.Enabled:=true;
+         Timer2.Enabled:=true;
+         Timer3.Enabled:=true;
+         Timer4.Enabled:=true;
+         Timer5.Enabled:=true;
+         Timer6.Enabled:=true;
+         Timer7.Enabled:=true;
+         Timer8.Enabled:=true;
+         Timer9.Enabled:=true;
+         Timer10.Enabled:=true;
+        form21.Close;
+          Timer1.interval:=timer1.interval-80;
+    Timer2.interval:=Timer2.interval-80;
+      Timer3.interval:=Timer3.interval-80;
+        Timer4.interval:=Timer4.interval-80;
+          Timer5.interval:=Timer5.interval-80;
+            Timer6.interval:=Timer6.interval-80;
+              Timer7.interval:=Timer7.interval-80;
+                Timer8.interval:=Timer8.interval-80;
+                  Timer9.interval:=Timer9.interval-80;
+                    Timer10.interval:=Timer10.interval-80;    end;
+end;
+
+end.

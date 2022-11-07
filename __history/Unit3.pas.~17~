@@ -1,0 +1,165 @@
+unit Unit3;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, jpeg, ExtCtrls,unit7, Vcl.MPlayer;
+
+type
+  TForm3 = class(TForm)
+    Image1: TImage;
+    Label1: TLabel;
+    Image2: TImage;
+    Label2: TLabel;
+    Image3: TImage;
+    Image4: TImage;
+    Image6: TImage;
+    Image9: TImage;
+    Image10: TImage;
+    Image11: TImage;
+    Image12: TImage;
+    Image7: TImage;
+    Image8: TImage;
+    Image5: TImage;
+    Image13: TImage;
+    Image14: TImage;
+    Image15: TImage;
+    Image16: TImage;
+    Image17: TImage;
+    Image18: TImage;
+    Image19: TImage;
+    MediaPlayer2: TMediaPlayer;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+    procedure Image13Click(Sender: TObject);
+    procedure Image19Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure MediaPlayer2Notify(Sender: TObject);
+    procedure Image4Click(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form3: TForm3;
+
+implementation
+
+{$R *.dfm}
+
+uses Unit4, Unit8, Unit10, Unit9, Unit12;
+
+procedure TForm3.FormActivate(Sender: TObject);
+begin
+ if unit4.a=2 then
+begin
+if unit4.songstatement=1 then MediaPlayer2.FileName := GetCurrentDir()+'\plastinki\onceuponatime.mp3';
+if unit4.songstatement=2 then MediaPlayer2.FileName := GetCurrentDir()+'\plastinki\snowy.mp3';
+if unit4.songstatement=3 then MediaPlayer2.FileName := GetCurrentDir()+'\plastinki\homemusicbox.mp3';
+if unit4.songstatement=4 then MediaPlayer2.FileName := GetCurrentDir()+'\plastinki\home.mp3';
+MediaPlayer2.Open;
+MediaPlayer2.AutoRewind := True;
+MediaPlayer2.Play;
+MediaPlayer2.Notify := True;
+         unit4.a:=9;
+end;
+end;
+
+procedure TForm3.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Application.Terminate;
+end;
+
+procedure TForm3.FormCreate(Sender: TObject);
+begin
+form3.Cursor:=1;
+image17.Picture.LoadFromFile('фотокарточки/тише едешь дальше будешь.bmp');
+image17.Align:=alclient;
+image17.Stretch:=true;
+Image1.align:=alClient;
+image18.align:=alclient;
+image1.Picture.LoadFromFile('фотокарточки/pixel-art-wallpaper-20072219574552048x1152.jpg');
+image2.Picture.LoadFromFile('фотокарточки/подарок1.bmp');
+image3.Picture.LoadFromFile('фотокарточки/кнопкаa.bmp');
+image4.Picture.LoadFromFile('фотокарточки/кнопка2a.bmp');
+image5.Picture.LoadFromFile('фотокарточки/ракета.bmp');
+image6.Picture.LoadFromFile('фотокарточки/ufoа.bmp');
+image7.Picture.LoadFromFile('фотокарточки/космонавтр.bmp');
+image9.Picture.LoadFromFile('фотокарточки/венера.bmp');
+image10.Picture.LoadFromFile('фотокарточки/фреде меркуре.bmp');
+image11.Picture.LoadFromFile('фотокарточки/земля.bmp');
+image12.Picture.LoadFromFile('фотокарточки/марс.bmp');
+image14.Picture.LoadFromFile('фотокарточки/замок.bmp');
+image15.Picture.LoadFromFile('фотокарточки/замок.bmp');
+image16.Picture.LoadFromFile('фотокарточки/замок.bmp');
+image18.Picture.LoadFromFile('фотокарточки/нормик.bmp');
+image13.Picture.LoadFromFile('фотокарточки/кнопка55.bmp');
+image8.Picture.LoadFromFile('фотокарточки/парад планетА.bmp');
+image19.Picture.LoadFromFile('фотокарточки/кнопуля.bmp');
+label1.Font.Color:=clwhite;
+end;
+
+procedure TForm3.Image13Click(Sender: TObject);
+begin
+form7.show;
+form3.Hide;
+image4.Enabled:=true;
+image3.Enabled:=true;
+image3.Picture.LoadFromFile('фотокарточки/кнопка.bmp');
+image4.Picture.LoadFromFile('фотокарточки/кнопка2.bmp');
+image8.Picture.LoadFromFile('фотокарточки/парад планет.bmp');
+image6.Picture.LoadFromFile('фотокарточки/ufo.bmp');
+image2.Picture.LoadFromFile('фотокарточки/подарок.bmp');
+image14.Visible:=false;
+image15.Visible:=false;
+image16.visible:=false;
+image17.visible:=false;
+image1.Visible:=true;
+image11.Visible:=true;
+image10.Visible:=true;
+image12.Visible:=true;
+image9.Visible:=true;
+image7.Visible:=true;
+label1.Font.Color:=$00FFE3E7;
+image13.Enabled:=false;
+end;
+
+procedure TForm3.Image19Click(Sender: TObject);
+begin
+image18.Visible:=false;
+image19.Visible:=false;
+end;
+
+
+
+
+procedure TForm3.Image2Click(Sender: TObject);
+begin
+theories.show;
+form3.Hide;
+end;
+
+procedure TForm3.Image4Click(Sender: TObject);
+begin
+form12.show;
+aliens.Showmodal;
+end;
+
+procedure TForm3.MediaPlayer2Notify(Sender: TObject);
+begin
+//повтор медиаплеера
+if unit4.a=4 then
+    begin
+        if MediaPlayer2.NotifyValue=nvSuccessful then
+            begin
+                MediaPlayer2.Play;
+                MediaPlayer2.Notify := True;
+            end;
+    end
+end;
+
+end.
